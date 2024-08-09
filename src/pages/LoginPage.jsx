@@ -40,6 +40,7 @@ function LoginPage() {
           <input
             type="text"
             className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
+            autoComplete="on"
             placeholder="Username"
             {...register("username", {
               required: true,
@@ -65,6 +66,7 @@ function LoginPage() {
           <input
             type="password"
             className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
+            autoComplete="on"
             placeholder="Password"
             {...register("password", {
               required: true,

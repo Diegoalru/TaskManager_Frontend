@@ -12,10 +12,17 @@ function TaskPage() {
   useEffect(() => {
     fetchTasks();
 
-    const intervalId = setInterval(fetchTasks, 10000);
+    // Establece un intervalo para realizar la petición cada 10 segundos
+    const intervalId = setInterval(() => {
+      fetchTasks();
+    }, 10000); // 10000 milisegundos = 10 segundos
 
-    return () => clearInterval(intervalId);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // Limpia el intervalo cuando el componente se desmonta para evitar fugas de memoria
+    return () => {
+      clearInterval(intervalId);
+    };
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
